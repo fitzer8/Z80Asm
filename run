@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -e tst.lst ]
+then
+	rm -f tst.lst
+fi
+
+if [ -e tst.com ]
+then
+	rm -f tst.com
+fi
+
+./bin/Asm8080 -E -O -L tst | less
+less tst.lst
+ls -la
+

@@ -1,0 +1,12 @@
+		org 0x0100
+
+			equ
+
+cpm:	equ	0005H
+		nap
+		jmp		cpm
+
+		end
+
+
+	another line after the end statement

@@ -1,0 +1,51 @@
+ 0100              1 		org	0x0100
+                   2
+                   3 stack:	equ	0123H
+                   4 cpm:	equ	0005H
+                   5 bdos	equ	0005H
+ 0100 C30B01       6 		jmp	start
+                   7
+ 0103 48692074     8 		ascii	'Hi there'	; comment for test purposes.
+      68657265
+ 010B E620         9 start:	ani	0x20
+ 010D 0C          10 		inr	c
+ 010E 80          11 		add	b
+ 010F 88          12 		adc	b
+ 0110 90          13 		sub	b
+ 0111 98          14 		sbb	b
+                  15 ;		list	off
+ 0112 AF          16 		xra	a
+ 0113 B7          17 		ora	a
+ 0114 A7          18 		ana	a
+ 0115 BF          19 		cmp	a
+ 0116 41          20 		mov	b,c
+ 0117 3E20        21 		mvi	a,0x20
+ 0119 210002      22 		lxi	hl, 0x0200
+ 011C 33          23 		inx	sp
+ 011D C5          24 		push	bc
+ 011E E5          25 		push	hl
+ 011F F1          26 		pop	psw
+ 0120 F5          27 		push	af
+ 0121 02          28 		stax	bc
+ 0122 1A          29 		ldax	de
+ 0123 38          30 		rst	7
+ 0124 18          31 		rst	3
+                  32 ; Comment
+                  33 ;		list	on
+ 0125             34 buff:	ds	20H		; buffer
+ 0145 41          35 		db		'A'
+ 0146 20          36 		db		0x20
+ 0147 2301        37 		dw		stack
+ 0149             38 		end
+    0 :  Total Error(s)
+
+
+
+
+Symbol Table
+
+Addr: 0x0005 E   bdos
+Addr: 0x0125   buff
+Addr: 0x0005 E   cpm
+Addr: 0x0123 E   stack
+Addr: 0x010B   start
